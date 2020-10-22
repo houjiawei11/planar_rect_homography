@@ -1,0 +1,17 @@
+<!-- SIFT as an external detector -->
+<launch>
+    <!-- Nodes -->
+    <node name="find_object_2d" pkg="find_object_2d" type="find_object_2d" output="screen">
+        <remap from="image" to="/detector/input"/>
+        <param name="gui" value="false" type="bool"/>
+        <param name="objects_path" value="$(find mars_hazmat_detection_pkg)/find_object_2d_config/objects" type="str"/>
+        <param name="settings_path" value="$(find mars_hazmat_detection_pkg)/find_object_2d_config/find_object_2d.ini" type="str"/>
+    </node>
+
+    <node name="find_object_2d_visualizer_node" pkg="mars_hazmat_detection_pkg" type="find_object_2d_visualizer_node">
+        <remap from="image" to="/camera_right/color/image_raw"/>
+        <remap from="objects" to="objects"/>
+    </node>
+
+
+</launch>

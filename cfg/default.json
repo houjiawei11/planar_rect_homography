@@ -1,0 +1,9 @@
+{
+  "cloud_frame":"camera_depth_optical_frame",
+  "color_frame":"camera_color_optical_frame",
+  "plane_extraction_method":"RANSAC",
+  "ransac_distance_threshold":0.08,
+  "ransac_max_iteration":1000.0,
+  "ransac_min_perserve_ratio":0.9,
+  "result_saving_dir":"/home/ernest/results"
+}

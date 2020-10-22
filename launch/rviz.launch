@@ -1,0 +1,3 @@
+<launch>
+    <node name="planar_homography_rectifier_node" pkg="rviz" type="rviz" args="-d $(find planar_rect_homography_pkg)/rviz/planar_homography.rviz"/>
+</launch>

@@ -1,0 +1,11 @@
+<launch>
+    <node name="planar_rect_homography_node" pkg="planar_rect_homography_pkg" type="planar_rect_homography_node"
+          output = "screen"
+          args="-cfg /home/ernest/catkin_ws/src/planar_rect_homography_pkg/cfg/default.json">
+
+        <remap from="/camera_info" to="/camera/color/camera_info"/>
+        <remap from="/color_image" to="/camera/color/image_raw"/>
+        <remap from="/cloud" to="/camera/depth/color/points"/>
+    </node>
+
+</launch>

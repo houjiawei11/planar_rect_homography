@@ -1,0 +1,22 @@
+<launch>
+
+    <arg name="plane_extraction_method"     default="RANSAC"/>
+    <arg name="ransac_min_perserve_ratio"   default="0.9"/>
+    <arg name="ransac_max_iteration"        default="1000"/>
+    <arg name="ransac_distance_threshold"   default="0.04"/>
+    <arg name="result_saving_dir"           default="/home/mars-lab/caijx_ws/experiments/results"/>
+
+    <arg name="color_frame"                 default="camera_color_optical_frame"/>
+    <arg name="cloud_frame"                 default="camera_depth_optical_frame"/>
+
+    <node name="planar_rect_homography_node" pkg="planar_rect_homography_pkg" type="planar_rect_homography_node"
+          output = "screen"
+          args="$(arg plane_extraction_method) $(arg ransac_min_perserve_ratio) $(arg ransac_max_iteration)
+          $(arg ransac_distance_threshold) $(arg result_saving_dir) $(arg color_frame) $(arg cloud_frame)">
+
+        <remap from="/camera_info" to="/camera/color/camera_info"/>
+        <remap from="/color_image" to="/camera/color/image_raw"/>
+        <remap from="/cloud" to="/camera/depth/color/points"/>
+    </node>
+
+</launch>
